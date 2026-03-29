@@ -87,7 +87,7 @@ const navLinkClass =
   "whitespace-nowrap font-sans text-[20px] font-bold leading-7 tracking-[0.48px] text-mist transition-opacity hover:opacity-80 sm:text-2xl sm:leading-7";
 
 const socialClass =
-  "flex size-14 shrink-0 items-center justify-center bg-sand p-4 transition-opacity hover:opacity-90";
+  "flex size-14 shrink-0 items-center justify-center bg-cream p-4 transition-opacity hover:opacity-90";
 
 export default function FooterSection() {
   return (

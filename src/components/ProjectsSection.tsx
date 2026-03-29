@@ -7,7 +7,6 @@ const imgProjectImage1 = "https://www.figma.com/api/mcp/asset/af5f1bea-019a-4dd4
 const imgProjectImage2 = "https://www.figma.com/api/mcp/asset/c1ae7696-3cea-4705-a3f1-1182e3cc9fea";
 const imgProjectImage3 = "https://www.figma.com/api/mcp/asset/470e1d9f-255c-4276-b256-f4fb988b3c16";
 const imgCtaArrow = "https://www.figma.com/api/mcp/asset/45f6c834-c78c-4c90-94c8-1223aac137c6";
-const imgLinkArrow = "https://www.figma.com/api/mcp/asset/0c9feca9-f203-4655-b529-705c06ca86cb";
 
 const PROJECTS: { id: string; image: string; title: string; description: string }[] = [
   {
@@ -73,15 +72,18 @@ export default function ProjectsSection() {
             </button>
           </div>
 
-          <div className="relative flex w-full min-w-0 flex-col gap-8 lg:gap-0">
+          <div className="relative flex w-full min-w-0 flex-col gap-[32px]">
             {PROJECTS.map((p, i) => (
-              <article
+              <Link
                 key={p.id}
+                to={`/projects/${p.id}`}
+                aria-label={`${p.title} — view project details`}
                 className={
-                  "flex flex-col gap-6 border border-ink bg-cream px-5 pb-5 " +
+                  "flex flex-col gap-6 border border-ink bg-cream px-5 pb-5 text-inherit no-underline outline-none " +
+                  "transition-shadow duration-500 ease-out motion-reduce:transition-none " +
+                  "focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream " +
                   (i > 0 ? "pt-8 " : "pt-5 ") +
                   "shadow-[0_1px_0_rgba(15,15,15,0.06)] " +
-                  "transition-shadow duration-500 ease-out motion-reduce:transition-none " +
                   "lg:sticky lg:shadow-[0_12px_40px_rgba(15,15,15,0.12)] " +
                   (CARD_Z[i] ?? "lg:z-10 ") +
                   (i < n - 1 ? "lg:mb-[min(88vh,52rem)]" : "lg:mb-24")
@@ -97,18 +99,8 @@ export default function ProjectsSection() {
                   </h3>
                   <p className="text-[18px] leading-normal">{p.description}</p>
                 </div>
-                <Link
-                  to={`/projects/${p.id}`}
-                  className="inline-flex w-fit items-center gap-2.5 border border-ink px-6 py-4 font-sans text-[16px] font-bold leading-6 tracking-[0.8px] text-ink"
-                >
-                  Check project Details
-                  <span className="relative size-6 shrink-0 overflow-hidden">
-                    <span className="absolute inset-[18.75%_12.5%]">
-                      <img alt="" className="block size-full max-w-none" src={imgLinkArrow} />
-                    </span>
-                  </span>
-                </Link>
-              </article>
+                {/* Per-card “Check project Details” CTA removed — whole card is the link. Re-add with imgLinkArrow from Figma (0c9feca9…) if needed. */}
+              </Link>
             ))}
           </div>
         </div>
