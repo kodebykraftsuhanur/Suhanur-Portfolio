@@ -1,11 +1,12 @@
 /** Desktop pill nav — Figma "Navigation Container" (619:428). */
 
 import { Link } from "react-router-dom";
+import { SITE_IMAGES } from "../assets/siteImages";
 
 /** Active / on-pine dot (Figma 619:415). */
-export const imgNavEllipseHome = "https://www.figma.com/api/mcp/asset/305890bb-d15b-4f0a-b870-0b19df0f88b9";
+export const imgNavEllipseHome = SITE_IMAGES.navEllipseHome;
 /** Default dot on cream (Figma 619:423). */
-export const imgNavEllipseProjects = "https://www.figma.com/api/mcp/asset/b7a38eb5-b9f9-45b9-abce-6b50fb0e1461";
+export const imgNavEllipseProjects = SITE_IMAGES.navEllipseProjects;
 
 /** Nav item: gap 4px, px 40, py 10 — matches Figma "Nav Item". */
 const navItemClass =

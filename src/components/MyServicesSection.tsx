@@ -1,8 +1,7 @@
 /** My Services — matches Figma frame (node 633:547), responsive all breakpoints. */
 
 import { useId, useState } from "react";
-
-const imgPlus = "https://www.figma.com/api/mcp/asset/553a5ff2-6a79-49a5-9848-08161a1054ad";
+import { SITE_IMAGES } from "../assets/siteImages";
 // Horizontal rule between services (Figma asset) — uncomment `imgLine5`, `RowDivider`, and `{i < n - 1 && <RowDivider />}` to restore.
 // const imgLine5 = "https://www.figma.com/api/mcp/asset/39bc98dc-81d1-42f6-98b9-215f711c1a79";
 
@@ -49,7 +48,7 @@ function PlusIcon({ className }: { className?: string }) {
     <div className={className ?? "relative size-7 shrink-0 sm:size-8"}>
       <div className="absolute inset-[16.67%]">
         <div className="absolute inset-[-4.69%]">
-          <img alt="" className="block size-full max-w-none" src={imgPlus} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.servicesPlus} decoding="async" />
         </div>
       </div>
     </div>

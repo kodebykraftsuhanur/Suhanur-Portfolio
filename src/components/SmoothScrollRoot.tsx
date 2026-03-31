@@ -1,45 +1,72 @@
 /**
- * Smooth page scroll only (Lenis). No section/element animations.
+ * Smooth page scroll (Lenis) on large viewports only — avoids touch/RAF overhead on phones.
  * Skipped when the user prefers reduced motion.
- * Exposes `useLenis()` so `ScrollToTop` can reset scroll on React Router navigations.
+ * Lenis is loaded dynamically so mobile never downloads it.
  */
 
-import Lenis from "lenis";
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import "lenis/dist/lenis.css";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 
-const LenisContext = createContext<Lenis | null>(null);
+type LenisInstance = InstanceType<typeof import("lenis").default>;
+
+const LenisContext = createContext<LenisInstance | null>(null);
+
+const LENIS_MIN_WIDTH = "(min-width: 1024px)";
 
 export function useLenis() {
   return useContext(LenisContext);
 }
 
 export function SmoothScrollRoot({ children }: { children: ReactNode }) {
-  const [lenis, setLenis] = useState<Lenis | null>(null);
+  const [lenis, setLenis] = useState<LenisInstance | null>(null);
+  const instanceRef = useRef<LenisInstance | null>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
-    const instance = new Lenis({
-      autoRaf: true,
-      smoothWheel: true,
-      syncTouch: true,
-      // Lower lerp = softer follow, longer glide (smoother feel)
-      lerp: 0.052,
-      syncTouchLerp: 0.055,
-      wheelMultiplier: 0.88,
-      touchMultiplier: 0.92,
-      touchInertiaExponent: 1.82,
-      anchors: true,
-      stopInertiaOnNavigate: true,
-    });
+    const mq = window.matchMedia(LENIS_MIN_WIDTH);
+    if (!mq.matches) {
+      return;
+    }
 
-    setLenis(instance);
+    let cancelled = false;
+    instanceRef.current = null;
+
+    void (async () => {
+      const [{ default: Lenis }] = await Promise.all([
+        import("lenis"),
+        import("lenis/dist/lenis.css"),
+      ]);
+      if (cancelled) return;
+
+      const instance = new Lenis({
+        autoRaf: true,
+        smoothWheel: true,
+        syncTouch: true,
+        lerp: 0.052,
+        syncTouchLerp: 0.055,
+        wheelMultiplier: 0.88,
+        touchMultiplier: 0.92,
+        touchInertiaExponent: 1.82,
+        anchors: true,
+        stopInertiaOnNavigate: true,
+      });
+
+      if (cancelled) {
+        instance.destroy();
+        return;
+      }
+
+      instanceRef.current = instance;
+      setLenis(instance);
+    })();
 
     return () => {
-      instance.destroy();
+      cancelled = true;
+      instanceRef.current?.destroy();
+      instanceRef.current = null;
       setLenis(null);
     };
   }, []);

@@ -3,6 +3,8 @@
  * Use `image: null` for media slots — renders empty placeholder frames until assets exist.
  */
 
+import { SITE_IMAGES } from "../assets/siteImages";
+
 export type CaseHeroMetaItem = {
   label: string;
   value: string;
@@ -46,9 +48,9 @@ export const PROJECT_CASE_STUDIES: Record<string, ProjectCaseStudyConfig> = {
     title: "Amader School",
     images: {
       hero: "/amader-school-hero.png",
-      wide: "https://www.figma.com/api/mcp/asset/2756a265-1692-4d50-aba6-9ae70ea98afd",
-      handBg: "https://www.figma.com/api/mcp/asset/6e76f01c-4ff3-49d8-b33c-01d6d6802613",
-      handPhone: "https://www.figma.com/api/mcp/asset/72e14ce7-410a-419c-b113-8534721f79bc",
+      wide: SITE_IMAGES.caseWide,
+      handBg: SITE_IMAGES.caseHandBg,
+      handPhone: SITE_IMAGES.caseHandPhone,
       finalMockup: "/amader-school-mockup.png",
     },
     heroMeta: [

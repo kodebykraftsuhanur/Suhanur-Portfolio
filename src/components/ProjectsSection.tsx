@@ -1,38 +1,34 @@
 /** Projects — Figma "My Project" (node 666:918). Sticky stack on large screens. */
 
 import { Link } from "react-router-dom";
-
-const imgProjectImage = "https://www.figma.com/api/mcp/asset/bc1434ff-c35a-4b95-99a9-38a335a7a714";
-const imgProjectImage1 = "https://www.figma.com/api/mcp/asset/af5f1bea-019a-4dd4-945d-efd880907c3d";
-const imgProjectImage2 = "https://www.figma.com/api/mcp/asset/c1ae7696-3cea-4705-a3f1-1182e3cc9fea";
-const imgProjectImage3 = "https://www.figma.com/api/mcp/asset/470e1d9f-255c-4276-b256-f4fb988b3c16";
-const imgCtaArrow = "https://www.figma.com/api/mcp/asset/45f6c834-c78c-4c90-94c8-1223aac137c6";
+import { SITE_IMAGES } from "../assets/siteImages";
+import { PictureImg } from "./PictureImg";
 
 const PROJECTS: { id: string; image: string; title: string; description: string }[] = [
   {
     id: "school-app",
-    image: imgProjectImage,
+    image: SITE_IMAGES.homeProjectSchool,
     title: "School Management App",
     description:
       "An intuitive platform that streamlines school operations and improves communication between students and parents.",
   },
   {
     id: "school-dash",
-    image: imgProjectImage1,
+    image: SITE_IMAGES.homeProjectDash,
     title: "School Management Dashboard",
     description:
       "Designed to bridge the communication gap between parents and schools through real-time updates and insights.",
   },
   {
     id: "nursery-mechanic",
-    image: imgProjectImage2,
+    image: SITE_IMAGES.homeProjectFixora,
     title: "FIXORA",
     description:
       "A smart platform that connects users with nearby mechanics for quick, reliable, and hassle-free vehicle services.",
   },
   {
     id: "nursery-plant",
-    image: imgProjectImage3,
+    image: SITE_IMAGES.homeProjectNursery,
     title: "Nursery App",
     description:
       "An all-in-one plant care platform for shopping, tracking, guidance, and booking home gardening services.",
@@ -57,19 +53,24 @@ export default function ProjectsSection() {
             <h2 className="font-serif text-[clamp(2.5rem,6vw,6rem)] font-extrabold leading-[1.2] text-ink lg:text-[96px]">
               Project That Proves My Capabilities
             </h2>
-            <button
-              type="button"
-              className="inline-flex w-fit shrink-0 items-center gap-2.5 bg-pine px-6 py-4 text-mist"
+            <Link
+              to="/projects"
+              className="inline-flex w-fit shrink-0 items-center gap-2.5 bg-pine px-6 py-4 text-mist no-underline transition-opacity hover:opacity-90"
             >
               <span className="whitespace-nowrap font-sans text-[20px] font-bold leading-9 tracking-[1px]">
-                Check My Case Stuides
+                See Projects
               </span>
               <span className="relative size-9 shrink-0 overflow-hidden">
                 <span className="absolute inset-[18.75%_12.5%]">
-                  <img alt="" className="block size-full max-w-none" src={imgCtaArrow} />
+                  <img
+                    alt=""
+                    className="block size-full max-w-none"
+                    src={SITE_IMAGES.projectsCtaArrow}
+                    decoding="async"
+                  />
                 </span>
               </span>
-            </button>
+            </Link>
           </div>
 
           <div className="relative flex w-full min-w-0 flex-col gap-[32px]">
@@ -91,7 +92,15 @@ export default function ProjectsSection() {
                 style={{ top: `calc(${STACK_BASE} + ${i * STACK_PEEK_PX}px)` }}
               >
                 <div className="relative h-[min(402px,55vw)] w-full min-h-0 overflow-hidden bg-black lg:h-[402px]">
-                  <img alt="" className="size-full object-cover" src={p.image} />
+                  <PictureImg
+                    alt=""
+                    pictureClassName="absolute inset-0 block h-full w-full"
+                    className="size-full object-cover"
+                    src={p.image}
+                    decoding="async"
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 782px"
+                  />
                 </div>
                 <div className="flex flex-col gap-4 font-sans text-ink">
                   <h3 className="text-[clamp(1.25rem,3vw,2rem)] font-normal leading-none lg:text-[32px] lg:leading-normal">

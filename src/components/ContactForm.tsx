@@ -1,9 +1,7 @@
 /** Contact form — Figma "Contact" (630:144). Dropdown row + chevron per Form Item (630:150). */
 
 import type { ReactNode } from "react";
-
-const imgChevron = "https://www.figma.com/api/mcp/asset/1aaf6974-b469-4287-a94b-b4f8af56c548";
-const imgSubmitArrow = "https://www.figma.com/api/mcp/asset/89c05232-d4d8-41c5-b6da-db6e87d74f84";
+import { SITE_IMAGES } from "../assets/siteImages";
 
 const fieldBase =
   "w-full border-b border-mist bg-transparent py-2 text-[18px] leading-8 text-mist focus:outline-none focus:ring-0";
@@ -29,7 +27,7 @@ function SelectChevron() {
     <div className="pointer-events-none relative size-6 shrink-0" aria-hidden>
       <div className="absolute bottom-[37.5%] left-1/4 right-1/4 top-[37.5%]">
         <div className="absolute inset-[-16.67%_-8.33%]">
-          <img alt="" className="block size-full max-w-none" src={imgChevron} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.contactChevron} decoding="async" />
         </div>
       </div>
     </div>
@@ -126,7 +124,12 @@ export default function ContactForm() {
         Submit Request
         <span className="relative size-9 shrink-0 overflow-hidden">
           <span className="absolute inset-[18.75%_12.5%]">
-            <img alt="" className="block size-full max-w-none" src={imgSubmitArrow} />
+            <img
+              alt=""
+              className="block size-full max-w-none"
+              src={SITE_IMAGES.contactSubmitArrow}
+              decoding="async"
+            />
           </span>
         </span>
       </button>

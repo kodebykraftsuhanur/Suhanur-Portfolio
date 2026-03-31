@@ -17,16 +17,18 @@ const heroTitleSize =
 export default function ContactMePage() {
   return (
     <div className="flex min-h-0 w-full flex-col bg-cream">
-      <header className="w-full bg-cream pb-10 pt-[50px] sm:pb-12 lg:pb-16">
-        <div className={layoutShell}>
-          <div className={`${layoutBand} flex flex-col gap-10 lg:gap-12`}>
-            <SiteNavBar active="contact" variant="page" />
-            <h1
-              className="w-full text-center font-serif font-extrabold leading-none text-ink"
-              style={{ fontSize: heroTitleSize }}
-            >
-              Contact Me
-            </h1>
+      <header className="w-full bg-cream pb-10 max-lg:pt-0 lg:pt-[50px] sm:pb-12 lg:pb-16">
+        <div className="flex w-full flex-col max-lg:gap-6 lg:gap-12">
+          <SiteNavBar active="contact" variant="page" />
+          <div className={layoutShell}>
+            <div className={layoutBand}>
+              <h1
+                className="w-full text-center font-serif font-extrabold leading-none text-ink"
+                style={{ fontSize: heroTitleSize }}
+              >
+                Contact Me
+              </h1>
+            </div>
           </div>
         </div>
       </header>

@@ -1,15 +1,11 @@
 /** Dedicated projects page — Figma "project" (663:543): nav + My Projects grid + contact + footer. */
 
 import { Link } from "react-router-dom";
+import { SITE_IMAGES } from "../assets/siteImages";
 import ContactForm from "./ContactForm";
+import { PictureImg } from "./PictureImg";
 import ContactInformation from "./ContactInformation";
 import { SiteNavBar } from "./SiteNavBar";
-
-const imgProjectImage = "https://www.figma.com/api/mcp/asset/acdaa451-9eb2-46fb-9ed9-45d43a504eb7";
-const imgProjectImage1 = "https://www.figma.com/api/mcp/asset/af61b0a8-251a-4752-b4c4-4f1139cf763b";
-const imgProjectImage2 = "https://www.figma.com/api/mcp/asset/52fda70f-0da4-4ac3-ba03-64f48ba49c9f";
-const imgProjectImage3 = "https://www.figma.com/api/mcp/asset/3ad20599-aca7-4a1d-9513-759ed2a01ab8";
-const imgLinkArrow = "https://www.figma.com/api/mcp/asset/8a501291-b65d-44ab-b8a0-170e1e22269f";
 
 const layoutShell = "mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]";
 const layoutBand = "mx-auto w-full max-w-[1240px]";
@@ -17,28 +13,28 @@ const layoutBand = "mx-auto w-full max-w-[1240px]";
 const PROJECTS: { id: string; image: string; title: string; description: string }[] = [
   {
     id: "school-app",
-    image: imgProjectImage,
+    image: SITE_IMAGES.projectsPageSchool,
     title: "School Management App",
     description:
       "An intuitive platform that streamlines school operations and improves communication between students and parents.",
   },
   {
     id: "school-dash",
-    image: imgProjectImage1,
+    image: SITE_IMAGES.projectsPageDash,
     title: "School Management Dashboard",
     description:
       "Designed to bridge the communication gap between parents and schools through real-time updates and insights.",
   },
   {
     id: "nursery-plant",
-    image: imgProjectImage2,
+    image: SITE_IMAGES.projectsPageNursery,
     title: "Nursery App",
     description:
       "An all-in-one plant care platform for shopping, tracking, guidance, and booking home gardening services.",
   },
   {
     id: "nursery-mechanic",
-    image: imgProjectImage3,
+    image: SITE_IMAGES.projectsPageMechanic,
     title: "FIXORA",
     description:
       "A smart platform that connects users with nearby mechanics for quick, reliable, and hassle-free vehicle services.",
@@ -49,7 +45,15 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
   return (
     <article className="flex min-h-0 min-w-0 flex-1 flex-col gap-6 border border-black bg-cream p-5">
       <div className="relative h-[min(402px,70vw)] w-full shrink-0 overflow-hidden bg-black sm:h-[402px]">
-        <img alt="" className="size-full object-cover" src={image} />
+        <PictureImg
+          alt=""
+          pictureClassName="absolute inset-0 block h-full w-full"
+          className="size-full object-cover"
+          src={image}
+          decoding="async"
+          loading="lazy"
+          sizes="(max-width: 1024px) 100vw, 590px"
+        />
       </div>
       <div className="flex flex-col gap-4 font-sans text-ink">
         <h3 className="text-[clamp(1.25rem,3vw,2rem)] font-normal leading-normal lg:text-[32px]">{title}</h3>
@@ -62,7 +66,12 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
         Check project Details
         <span className="relative size-6 shrink-0 overflow-hidden">
           <span className="absolute inset-[18.75%_12.5%]">
-            <img alt="" className="block size-full max-w-none" src={imgLinkArrow} />
+            <img
+              alt=""
+              className="block size-full max-w-none"
+              src={SITE_IMAGES.projectsPageLinkArrow}
+              decoding="async"
+            />
           </span>
         </span>
       </Link>
@@ -75,12 +84,12 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex w-full flex-col bg-cream">
-      <div className="w-full bg-cream pb-16 pt-[50px] sm:pb-20 lg:pb-[80px]">
-        <div className={`${layoutShell}`}>
-          <div className={`${layoutBand} flex flex-col items-center gap-16 lg:gap-[100px]`}>
-            <SiteNavBar active="projects" variant="page" />
-
-            <div className="flex w-full flex-col items-center gap-16 lg:gap-20">
+      <div className="w-full bg-cream pb-16 max-lg:pt-0 lg:pt-[50px] sm:pb-20 lg:pb-[80px]">
+        <div className="flex w-full flex-col max-lg:gap-6 lg:gap-[100px]">
+          <SiteNavBar active="projects" variant="page" />
+          <div className={`${layoutShell}`}>
+            <div className={`${layoutBand} flex flex-col items-center`}>
+              <div className="flex w-full flex-col items-center gap-16 lg:gap-20">
               <h1
                 className="w-full text-center font-serif font-extrabold leading-none text-ink"
                 style={{
@@ -109,6 +118,7 @@ export default function ProjectsPage() {
                     </div>
                   ))}
                 </div>
+              </div>
               </div>
             </div>
           </div>

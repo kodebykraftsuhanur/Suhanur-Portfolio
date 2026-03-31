@@ -3,31 +3,19 @@
  */
 
 import { Link } from "react-router-dom";
-
-const imgWordmark =
-  "https://www.figma.com/api/mcp/asset/d1c0e636-74d3-4a42-80b6-5779bc3be6c5";
-
-const imgDribbble0 = "https://www.figma.com/api/mcp/asset/7144508c-a995-4b00-9f33-28f0a3fea0c5";
-const imgDribbble1 = "https://www.figma.com/api/mcp/asset/73cbfe5e-e895-475d-9a4c-d2a8158194c8";
-const imgDribbble2 = "https://www.figma.com/api/mcp/asset/f72e76fb-777d-4804-901a-8704541d7195";
-const imgDribbble3 = "https://www.figma.com/api/mcp/asset/3a9e62c3-190e-4f34-9540-cee6c7f1e45c";
-const imgLinkedin0 = "https://www.figma.com/api/mcp/asset/bd2d1839-f029-406a-b82a-2663b584ccb5";
-const imgLinkedin1 = "https://www.figma.com/api/mcp/asset/7c8686e6-a812-4f2c-aaba-2d9086899fa5";
-const imgLinkedin2 = "https://www.figma.com/api/mcp/asset/7bc9b216-fd74-4785-b7fa-72e0db5009ad";
-const imgBehance0 = "https://www.figma.com/api/mcp/asset/12325e0d-4756-4698-8bae-8a6c27913d2c";
-const imgBehance1 = "https://www.figma.com/api/mcp/asset/02cb92b3-189a-4a24-bb63-7d0e33626157";
+import { SITE_IMAGES } from "../assets/siteImages";
 
 function BehanceIcon() {
   return (
     <div className="relative size-6">
       <div className="absolute inset-[20.83%_54.17%_20.83%_8.33%]">
         <div className="absolute inset-[-5.36%_-8.33%]">
-          <img alt="" className="block size-full max-w-none" src={imgBehance0} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerBehance0} decoding="async" />
         </div>
       </div>
       <div className="absolute inset-[29.17%_8.33%_20.83%_58.33%]">
         <div className="absolute inset-[-6.25%_-9.38%]">
-          <img alt="" className="block size-full max-w-none" src={imgBehance1} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerBehance1} decoding="async" />
         </div>
       </div>
     </div>
@@ -39,17 +27,17 @@ function LinkedinIcon() {
     <div className="relative size-6">
       <div className="absolute inset-[39.58%_72.92%_8.33%_8.33%]">
         <div className="absolute inset-[-6%_-16.67%]">
-          <img alt="" className="block size-full max-w-none" src={imgLinkedin0} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin0} decoding="async" />
         </div>
       </div>
       <div className="absolute inset-[8.33%_72.92%_72.92%_8.33%]">
         <div className="absolute inset-[-16.67%]">
-          <img alt="" className="block size-full max-w-none" src={imgLinkedin1} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin1} decoding="async" />
         </div>
       </div>
       <div className="absolute inset-[39.58%_8.33%_8.33%_39.58%]">
         <div className="absolute inset-[-6%]">
-          <img alt="" className="block size-full max-w-none" src={imgLinkedin2} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin2} decoding="async" />
         </div>
       </div>
     </div>
@@ -61,22 +49,22 @@ function DribbbleIcon() {
     <div className="relative size-6">
       <div className="absolute inset-[8.33%]">
         <div className="absolute inset-[-3.75%]">
-          <img alt="" className="block size-full max-w-none" src={imgDribbble0} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble0} decoding="async" />
         </div>
       </div>
       <div className="absolute bottom-[16.67%] left-1/4 right-[8.33%] top-[54.17%]">
         <div className="absolute inset-[-10.71%_-0.86%_-6.22%_-3.82%]">
-          <img alt="" className="block size-full max-w-none" src={imgDribbble1} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble1} decoding="async" />
         </div>
       </div>
       <div className="absolute inset-[20.83%_20.83%_54.17%_8.33%]">
         <div className="absolute inset-[-8.11%_-3.36%_-12.5%_-0.99%]">
-          <img alt="" className="block size-full max-w-none" src={imgDribbble2} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble2} decoding="async" />
         </div>
       </div>
       <div className="absolute inset-[12.5%_37.5%_8.33%_29.17%]">
         <div className="absolute inset-[-3.25%_-9.37%_-0.8%_-5.34%]">
-          <img alt="" className="block size-full max-w-none" src={imgDribbble3} />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble3} decoding="async" />
         </div>
       </div>
     </div>
@@ -121,7 +109,7 @@ export default function FooterSection() {
 
           <div className="flex w-full min-w-0 justify-center">
             <img
-              src={imgWordmark}
+              src={SITE_IMAGES.footerMark}
               alt="SUHANUR"
               width={1233}
               height={297}

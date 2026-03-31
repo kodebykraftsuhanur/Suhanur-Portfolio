@@ -2,8 +2,10 @@
 
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { SITE_IMAGES } from "../assets/siteImages";
 import type { CaseStudyImages, ProjectCaseStudyConfig } from "../data/projectCaseStudies";
 import { CaseStudyFinalMockup, CASE_STUDY_FINAL_MOCKUP_SRC } from "./CaseStudyFinalMockup";
+import { PictureImg } from "./PictureImg";
 import ContactForm from "./ContactForm";
 import ContactInformation from "./ContactInformation";
 import { SiteNavBar } from "./SiteNavBar";
@@ -50,15 +52,23 @@ function RatioImageFrame({
 }
 
 function ProcessArrow() {
-  const imgProcessArrow1 = "https://www.figma.com/api/mcp/asset/b0c216ea-1e96-4f92-af41-22aa7f8dfe80";
-  const imgProcessArrow2 = "https://www.figma.com/api/mcp/asset/1c1f421c-58cb-4789-a2a9-46d0dc8ae7b4";
   return (
     <span className="relative size-6 shrink-0">
       <span className="absolute bottom-1/4 left-1/4 right-[31.25%] top-[31.25%]">
-        <img alt="" className="block size-full max-w-none" src={imgProcessArrow1} />
+        <img
+          alt=""
+          className="block size-full max-w-none"
+          src={SITE_IMAGES.caseProcessArrow1}
+          decoding="async"
+        />
       </span>
       <span className="absolute bottom-[33.33%] left-[33.33%] right-1/4 top-1/4">
-        <img alt="" className="block size-full max-w-none" src={imgProcessArrow2} />
+        <img
+          alt=""
+          className="block size-full max-w-none"
+          src={SITE_IMAGES.caseProcessArrow2}
+          decoding="async"
+        />
       </span>
     </span>
   );
@@ -77,18 +87,11 @@ const TIMELINE_ROWS = [
   { label: "Presentation", duration: "1 Week" },
 ] as const;
 
-const imgLinkArrow = "https://www.figma.com/api/mcp/asset/8f0b93b5-b98f-4854-8a64-668da99e99eb";
-
-const imgCardSchool = "https://www.figma.com/api/mcp/asset/acdaa451-9eb2-46fb-9ed9-45d43a504eb7";
-const imgCardDash = "https://www.figma.com/api/mcp/asset/af61b0a8-251a-4752-b4c4-4f1139cf763b";
-const imgCardNursery = "https://www.figma.com/api/mcp/asset/52fda70f-0da4-4ac3-ba03-64f48ba49c9f";
-const imgCardMechanic = "https://www.figma.com/api/mcp/asset/3ad20599-aca7-4a1d-9513-759ed2a01ab8";
-
 const ALL_SIMILAR = [
   {
     id: "school-app",
     href: "/projects/school-app",
-    image: imgCardSchool,
+    image: SITE_IMAGES.projectsPageSchool,
     title: "Amader School",
     description:
       "A modern school management app for students and parents — progress, tasks, and updates in one place.",
@@ -96,7 +99,7 @@ const ALL_SIMILAR = [
   {
     id: "school-dash",
     href: "/projects/school-dash",
-    image: imgCardDash,
+    image: SITE_IMAGES.projectsPageDash,
     title: "School Management Dashboard",
     description:
       "Designed to bridge the communication gap between parents and schools through real-time updates and insights.",
@@ -104,7 +107,7 @@ const ALL_SIMILAR = [
   {
     id: "nursery-plant",
     href: "/projects/nursery-plant",
-    image: imgCardNursery,
+    image: SITE_IMAGES.projectsPageNursery,
     title: "Nursery App",
     description:
       "An all-in-one plant care platform for shopping, tracking, guidance, and booking home gardening services.",
@@ -112,7 +115,7 @@ const ALL_SIMILAR = [
   {
     id: "nursery-mechanic",
     href: "/projects/nursery-mechanic",
-    image: imgCardMechanic,
+    image: SITE_IMAGES.projectsPageMechanic,
     title: "FIXORA",
     description:
       "A smart platform that connects users with nearby mechanics for quick, reliable, and hassle-free vehicle services.",
@@ -129,11 +132,13 @@ function HeroMedia({ images, title }: { images: CaseStudyImages; title: string }
   }
   return (
     <RatioImageFrame ratioClass="aspect-[888/520]" bgClass="bg-black">
-      <img
+      <PictureImg
         alt={title}
         src={images.hero}
+        pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
         decoding="async"
+        fetchPriority="high"
         sizes="(min-width: 1024px) min(1240px, 100vw), 100vw"
       />
     </RatioImageFrame>
@@ -146,9 +151,10 @@ function WideMedia({ src }: { src: string | null }) {
   }
   return (
     <RatioImageFrame ratioClass="aspect-[888/454]" bgClass="bg-black">
-      <img
+      <PictureImg
         alt=""
         src={src}
+        pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
         decoding="async"
         loading="lazy"
@@ -164,18 +170,21 @@ function HandMedia({ images }: { images: CaseStudyImages }) {
   }
   return (
     <RatioImageFrame ratioClass="aspect-[1240/698]" bgClass="bg-[#d9d9d9]">
-      <img
+      <PictureImg
         alt=""
         src={images.handBg}
+        rasterWebp={false}
+        pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
         decoding="async"
         loading="lazy"
         sizes="(min-width: 1024px) 1240px, 100vw"
       />
-      <img
+      <PictureImg
         alt=""
         src={images.handPhone}
-        className="pointer-events-none absolute inset-0 h-full w-full max-w-full object-contain object-bottom"
+        pictureClassName="pointer-events-none absolute inset-0 block h-full w-full max-w-full"
+        className="pointer-events-none h-full w-full max-w-full object-contain object-bottom"
         decoding="async"
         loading="lazy"
         sizes="(min-width: 1024px) 1240px, 100vw"
@@ -192,10 +201,11 @@ function FinalMockupBlock({ src }: { src: string | null }) {
     return <CaseStudyFinalMockup />;
   }
   return (
-    <img
+    <PictureImg
       src={src}
       alt=""
       width={1240}
+      pictureClassName="block w-full max-w-[1240px]"
       className="block h-auto min-w-0 w-full max-w-[1240px]"
       decoding="async"
       loading="lazy"
@@ -212,9 +222,12 @@ export default function ProjectCaseStudyPage({ config }: Props) {
 
   return (
     <div className="flex w-full flex-col bg-cream">
-      <SectionFrame className="bg-cream pb-12 pt-[50px] sm:pb-16 lg:pb-20">
-        <div className="flex w-full min-w-0 max-w-full flex-col gap-10 lg:gap-12">
+      <section className="w-full bg-cream pb-12 max-lg:pt-0 lg:pt-[50px] sm:pb-16 lg:pb-20">
+        <div className="flex w-full flex-col max-lg:gap-6 lg:gap-12">
           <SiteNavBar active="projects" variant="page" />
+          <div className={layoutShell}>
+            <div className={layoutBand}>
+              <div className="flex w-full min-w-0 max-w-full flex-col max-lg:gap-6 lg:gap-12">
           <h1
             className="w-full text-center font-serif font-extrabold leading-none text-ink"
             style={{
@@ -265,8 +278,11 @@ export default function ProjectCaseStudyPage({ config }: Props) {
             </h2>
             <p className="min-w-0 break-words font-sans text-[18px] leading-7">{about}</p>
           </section>
+              </div>
+            </div>
+          </div>
         </div>
-      </SectionFrame>
+      </section>
 
       <SectionFrame className="bg-cream py-12 sm:py-16">
         <div className="flex w-full min-w-0 max-w-full flex-col gap-10">
@@ -393,9 +409,10 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                 className="flex h-full min-h-0 min-w-0 max-w-full flex-col gap-6 border border-white p-5 font-sans text-mist"
               >
                 <RatioImageFrame ratioClass="aspect-[402/245] shrink-0" bgClass="bg-black">
-                  <img
+                  <PictureImg
                     alt=""
                     src={c.image}
+                    pictureClassName="absolute inset-0 block h-full w-full"
                     className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
                     decoding="async"
                     loading="lazy"
@@ -413,7 +430,12 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                   Check project Details
                   <span className="relative size-6 shrink-0 overflow-hidden">
                     <span className="absolute inset-[18.75%_12.5%]">
-                      <img alt="" className="block size-full max-w-none" src={imgLinkArrow} />
+                      <img
+                        alt=""
+                        className="block size-full max-w-none"
+                        src={SITE_IMAGES.caseLinkArrow}
+                        decoding="async"
+                      />
                     </span>
                   </span>
                 </Link>
