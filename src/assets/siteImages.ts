@@ -2,11 +2,15 @@
  * Static image URLs under `public/images/`.
  * Hosting assets locally avoids Figma MCP CDN latency and improves cache behavior.
  */
+import { HERO_CTA_ARROW, HERO_PORTRAIT_FALLBACK } from "./pathsHero";
+import { NAV_ELLIPSE_HOME, NAV_ELLIPSE_PROJECTS } from "./pathsNav";
+
 export const SITE_IMAGES = {
-  heroPortrait: "/images/hero-portrait.jpg",
-  heroCtaArrow: "/images/hero-cta-arrow.svg",
-  navEllipseHome: "/images/nav-ellipse-home.svg",
-  navEllipseProjects: "/images/nav-ellipse-projects.svg",
+  /** WebP fallback for `<picture>` (avoids a redundant full-size JPG fetch on modern browsers). */
+  heroPortrait: HERO_PORTRAIT_FALLBACK,
+  heroCtaArrow: HERO_CTA_ARROW,
+  navEllipseHome: NAV_ELLIPSE_HOME,
+  navEllipseProjects: NAV_ELLIPSE_PROJECTS,
   homeProjectSchool: "/images/home-project-school.png",
   homeProjectDash: "/images/home-project-dash.png",
   homeProjectFixora: "/images/home-project-fixora.png",

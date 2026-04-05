@@ -49,6 +49,8 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
           pictureClassName="absolute inset-0 block h-full w-full"
           className="size-full object-cover"
           src={image}
+          width={590}
+          height={402}
           decoding="async"
           loading="lazy"
           sizes="(max-width: 1024px) 100vw, 590px"
@@ -69,6 +71,8 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
               alt=""
               className="block size-full max-w-none"
               src={SITE_IMAGES.projectsPageLinkArrow}
+              width={24}
+              height={24}
               decoding="async"
               loading="lazy"
             />

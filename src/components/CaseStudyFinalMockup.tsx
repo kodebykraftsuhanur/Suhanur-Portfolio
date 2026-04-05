@@ -16,6 +16,7 @@ export function CaseStudyFinalMockup() {
       src={CASE_STUDY_FINAL_MOCKUP_SRC}
       alt={CASE_STUDY_FINAL_MOCKUP_ALT}
       width={CASE_STUDY_FINAL_MOCKUP_WIDTH}
+      height={806}
       pictureClassName="block w-full max-w-[1240px]"
       className="block h-auto min-w-0 w-full max-w-[1240px]"
       decoding="async"

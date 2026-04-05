@@ -33,6 +33,8 @@ export function CaseStudyUnavailable() {
                     alt=""
                     className="absolute block size-full max-w-none"
                     src={SITE_IMAGES.unavailableCtaIcon}
+                    width={36}
+                    height={36}
                     decoding="async"
                     loading="lazy"
                   />

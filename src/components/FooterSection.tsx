@@ -10,12 +10,12 @@ function BehanceIcon() {
     <div className="relative size-6">
       <div className="absolute inset-[20.83%_54.17%_20.83%_8.33%]">
         <div className="absolute inset-[-5.36%_-8.33%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerBehance0} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerBehance0} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
       <div className="absolute inset-[29.17%_8.33%_20.83%_58.33%]">
         <div className="absolute inset-[-6.25%_-9.38%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerBehance1} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerBehance1} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
     </div>
@@ -27,17 +27,17 @@ function LinkedinIcon() {
     <div className="relative size-6">
       <div className="absolute inset-[39.58%_72.92%_8.33%_8.33%]">
         <div className="absolute inset-[-6%_-16.67%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin0} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin0} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
       <div className="absolute inset-[8.33%_72.92%_72.92%_8.33%]">
         <div className="absolute inset-[-16.67%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin1} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin1} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
       <div className="absolute inset-[39.58%_8.33%_8.33%_39.58%]">
         <div className="absolute inset-[-6%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin2} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerLinkedin2} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
     </div>
@@ -49,22 +49,22 @@ function DribbbleIcon() {
     <div className="relative size-6">
       <div className="absolute inset-[8.33%]">
         <div className="absolute inset-[-3.75%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble0} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble0} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
       <div className="absolute bottom-[16.67%] left-1/4 right-[8.33%] top-[54.17%]">
         <div className="absolute inset-[-10.71%_-0.86%_-6.22%_-3.82%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble1} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble1} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
       <div className="absolute inset-[20.83%_20.83%_54.17%_8.33%]">
         <div className="absolute inset-[-8.11%_-3.36%_-12.5%_-0.99%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble2} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble2} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
       <div className="absolute inset-[12.5%_37.5%_8.33%_29.17%]">
         <div className="absolute inset-[-3.25%_-9.37%_-0.8%_-5.34%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble3} decoding="async" loading="lazy" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.footerDribbble3} width={24} height={24} decoding="async" loading="lazy" />
         </div>
       </div>
     </div>

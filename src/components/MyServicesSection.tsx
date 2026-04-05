@@ -48,7 +48,15 @@ function PlusIcon({ className }: { className?: string }) {
     <div className={className ?? "relative size-7 shrink-0 sm:size-8"}>
       <div className="absolute inset-[16.67%]">
         <div className="absolute inset-[-4.69%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.servicesPlus} decoding="async" loading="lazy" />
+          <img
+            alt=""
+            className="block size-full max-w-none"
+            src={SITE_IMAGES.servicesPlus}
+            width={32}
+            height={32}
+            decoding="async"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -105,16 +113,14 @@ function ServiceCard({ number, title, lines }: ServiceItem) {
             <PlusIcon className="relative size-6 shrink-0 sm:size-7 md:size-8" />
           </span>
         </div>
-        <div
-          className={
-            "grid min-h-0 transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none " +
-            (detailsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]")
-          }
-        >
+        <div className={"grid min-h-0 " + (detailsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
           <div className="min-h-0 overflow-hidden">
             <ul
               id={linesId}
-              className="flex w-full min-w-0 flex-col gap-3 pt-5 sm:pt-6 sm:gap-3.5 md:gap-4 md:pt-8 lg:pt-10"
+              className={
+                "flex w-full min-w-0 flex-col gap-3 pt-5 transition-opacity duration-200 ease-out sm:pt-6 sm:gap-3.5 md:gap-4 md:pt-8 lg:pt-10 motion-reduce:transition-none " +
+                (detailsOpen ? "opacity-100" : "pointer-events-none opacity-0")
+              }
               aria-hidden={!detailsOpen}
             >
               {lines.map((line) => (
@@ -157,7 +163,7 @@ function ServiceColumn({ items }: { items: ServiceItem[] }) {
 
 export default function MyServicesSection() {
   return (
-    <section className="w-full bg-cream py-12 sm:py-14 md:py-16 lg:py-[90px]">
+    <section className="w-full bg-cream py-12 [contain-intrinsic-size:auto_720px] [content-visibility:auto] sm:py-14 md:py-16 lg:py-[90px]">
       <div className="mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]">
         <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-8 sm:gap-12 md:gap-16 lg:gap-[80px]">
         <h2 className="w-full text-balance px-1 text-center font-serif font-extrabold leading-[1.05] text-ink sm:leading-none sm:tracking-tight md:tracking-normal">

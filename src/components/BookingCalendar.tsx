@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ensureCalEmbedBootstrap } from "../lib/calEmbedBootstrap";
 
 const CAL_ORIGIN = "https://app.cal.com";
@@ -25,8 +26,12 @@ function whenCalNamespaceReady(cb: () => void, attempt = 0): void {
     cb();
     return;
   }
-  if (attempt > 240) return;
-  requestAnimationFrame(() => whenCalNamespaceReady(cb, attempt + 1));
+  if (attempt > 200) return;
+  window.setTimeout(() => whenCalNamespaceReady(cb, attempt + 1), 48);
+}
+
+function hashToId(hash: string): string {
+  return decodeURIComponent(hash.replace(/^#/, ""));
 }
 
 /**
@@ -40,12 +45,60 @@ export default function BookingCalendar({
   title = DEFAULT_TITLE,
   headingId = DEFAULT_HEADING_ID,
 }: BookingCalendarProps) {
+  const { hash: routeHash } = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [ready, setReady] = useState(false);
+  /** Defer third-party work until near viewport (or hash / no anchor) to cut main-thread blocking time. */
+  const [loadCal, setLoadCal] = useState(() => {
+    if (typeof window === "undefined") return false;
+    if (anchorId == null || anchorId === "") return true;
+    return hashToId(window.location.hash) === anchorId;
+  });
+
+  useEffect(() => {
+    if (!anchorId) return undefined;
+    if (hashToId(routeHash) === anchorId) {
+      setLoadCal(true);
+    }
+    return undefined;
+  }, [routeHash, anchorId]);
+
+  useEffect(() => {
+    if (!anchorId || loadCal) return undefined;
+    const onHashChange = (): void => {
+      if (hashToId(window.location.hash) === anchorId) setLoadCal(true);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [anchorId, loadCal]);
+
+  useEffect(() => {
+    if (loadCal) return undefined;
+    if (anchorId == null || anchorId === "") {
+      setLoadCal(true);
+      return undefined;
+    }
+    if (hashToId(window.location.hash) === anchorId) {
+      setLoadCal(true);
+      return undefined;
+    }
+    const el = sectionRef.current;
+    if (!el) return undefined;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) setLoadCal(true);
+      },
+      { root: null, rootMargin: "520px 0px", threshold: 0 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [anchorId, loadCal]);
 
   useLayoutEffect(() => {
+    if (!loadCal) return undefined;
     const el = containerRef.current;
-    if (!el) return;
+    if (!el) return undefined;
 
     ensureCalEmbedBootstrap();
 
@@ -94,15 +147,41 @@ export default function BookingCalendar({
       if (fadeTimer) window.clearTimeout(fadeTimer);
       el.replaceChildren();
     };
-  }, []);
+  }, [loadCal]);
+
+  useLayoutEffect(() => {
+    if (!ready) return undefined;
+    const root = containerRef.current;
+    if (!root) return undefined;
+
+    let raf = 0;
+    const patchIframes = (): void => {
+      if (raf !== 0) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        root.querySelectorAll("iframe").forEach((iframe) => {
+          iframe.setAttribute("scrolling", "no");
+          iframe.style.overflow = "hidden";
+        });
+      });
+    };
+
+    patchIframes();
+    const obs = new MutationObserver(patchIframes);
+    obs.observe(root, { childList: true, subtree: true });
+    return () => {
+      obs.disconnect();
+      if (raf !== 0) cancelAnimationFrame(raf);
+    };
+  }, [ready]);
 
   return (
     <section
+      ref={sectionRef}
       id={anchorId}
       className="w-full bg-cream py-16 sm:py-[90px]"
       aria-labelledby={headingId}
     >
-      {/* 1440px shell, 100px horizontal inset @ lg; content band 1240px (matches site sections) */}
       <div className="mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]">
         <div className="mx-auto w-full max-w-[1240px]">
           <h2
@@ -112,13 +191,7 @@ export default function BookingCalendar({
             {title}
           </h2>
 
-          {/*
-            Do not set a large min-height on #my-cal-inline-30min: Cal's <cal-inline> uses height:inherit,
-            so a tall box stretches the iframe and leaves empty white space below the dark UI.
-          */}
-          <div
-            className={`relative w-full min-w-0 overflow-x-hidden ${!ready ? "min-h-[min(320px,50vh)]" : ""}`}
-          >
+          <div className="relative w-full min-w-0 min-h-[min(28rem,55dvh)] overflow-x-clip lg:min-h-[520px]">
             {!ready ? (
               <div
                 className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-cream/90"
@@ -131,7 +204,7 @@ export default function BookingCalendar({
             <div
               ref={containerRef}
               id="my-cal-inline-30min"
-              className={`booking-cal-root w-full max-w-full min-h-0 h-fit overflow-x-hidden overflow-y-visible transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+              className={`booking-cal-root w-full max-w-full min-h-0 h-fit overflow-x-clip overflow-y-visible transition-opacity duration-500 ease-out motion-reduce:transition-none ${
                 ready ? "opacity-100" : "opacity-0"
               }`}
             />

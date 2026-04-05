@@ -45,7 +45,10 @@ export default function ProjectsSection() {
   const n = PROJECTS.length;
 
   return (
-    <section id="projects" className="w-full bg-cream py-16 sm:py-[90px]">
+    <section
+      id="projects"
+      className="w-full bg-cream py-16 [contain-intrinsic-size:auto_1400px] [content-visibility:auto] sm:py-[90px]"
+    >
       {/* 1440 shell, 100px horizontal inset → 1240px content band, centered */}
       <div className="mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]">
         <div className="mx-auto grid w-full max-w-[1240px] grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start lg:gap-x-[60px] lg:gap-y-0">
@@ -66,6 +69,8 @@ export default function ProjectsSection() {
                     alt=""
                     className="block size-full max-w-none"
                     src={SITE_IMAGES.projectsCtaArrow}
+                    width={24}
+                    height={24}
                     decoding="async"
                     loading="lazy"
                   />
@@ -98,6 +103,8 @@ export default function ProjectsSection() {
                     pictureClassName="absolute inset-0 block h-full w-full"
                     className="size-full object-cover"
                     src={p.image}
+                    width={782}
+                    height={402}
                     decoding="async"
                     loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 782px"

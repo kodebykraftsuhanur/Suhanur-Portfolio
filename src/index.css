@@ -13,10 +13,15 @@
     max-height: none !important;
     align-items: flex-start !important;
     align-content: flex-start !important;
+    /* Host scroll chrome (thick bar) when Cal’s iframe briefly overflows — not inner app UI */
+    overflow: hidden !important;
   }
 
-  .booking-cal-root iframe.cal-embed {
+  /* Cal inline: iframe default scrolling shows a fat vertical bar when timezone popover opens */
+  .booking-cal-root iframe.cal-embed,
+  .booking-cal-root iframe {
     display: block;
     max-height: none !important;
+    overflow: hidden !important;
   }
 }

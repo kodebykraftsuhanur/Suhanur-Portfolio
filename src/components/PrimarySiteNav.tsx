@@ -1,12 +1,12 @@
 /** Desktop pill nav — Figma "Navigation Container" (619:428). */
 
 import { Link } from "react-router-dom";
-import { SITE_IMAGES } from "../assets/siteImages";
+import { NAV_ELLIPSE_HOME, NAV_ELLIPSE_PROJECTS } from "../assets/pathsNav";
 
 /** Active / on-pine dot (Figma 619:415). */
-export const imgNavEllipseHome = SITE_IMAGES.navEllipseHome;
+export const imgNavEllipseHome = NAV_ELLIPSE_HOME;
 /** Default dot on cream (Figma 619:423). */
-export const imgNavEllipseProjects = SITE_IMAGES.navEllipseProjects;
+export const imgNavEllipseProjects = NAV_ELLIPSE_PROJECTS;
 
 /** Nav item: gap 4px, px 40, py 10 — matches Figma "Nav Item". */
 const navItemClass =
@@ -19,12 +19,16 @@ function NavDot({ active }: { active: boolean }) {
       <img
         alt=""
         src={imgNavEllipseProjects}
+        width={10}
+        height={10}
         decoding="sync"
         className={`pointer-events-none absolute inset-0 size-full max-w-none ${active ? "opacity-0" : "opacity-100"}`}
       />
       <img
         alt=""
         src={imgNavEllipseHome}
+        width={10}
+        height={10}
         decoding="sync"
         className={`pointer-events-none absolute inset-0 size-full max-w-none ${active ? "opacity-100" : "opacity-0"}`}
       />

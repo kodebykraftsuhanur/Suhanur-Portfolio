@@ -7,17 +7,16 @@ const MOBILE_BAR_ROW =
   "relative z-[320] mx-5 flex items-center justify-between gap-3 rounded-none border border-black bg-[#fffefa] py-1.5 pl-[6px] pr-1.5 transition-shadow duration-300 ease-nav-smooth sm:mx-8";
 
 function HamburgerIcon({ open, className = "" }: { open: boolean; className?: string }) {
+  /** Single `transform` per line (composited); do not animate `top`/`bottom`. */
   const line =
-    "absolute left-1/2 h-[2px] w-[20px] -translate-x-1/2 bg-ink transition-all duration-300 ease-in-out origin-center";
+    "absolute left-1/2 top-1/2 h-[2px] w-[20px] -translate-x-1/2 bg-ink transition-transform duration-300 ease-in-out origin-center";
   return (
     <span className={`relative block size-6 shrink-0 ${className}`.trim()} aria-hidden>
-      <span className={`${line} ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[5px]"}`} />
+      <span className={line + (open ? " -translate-y-1/2 rotate-45" : " translate-y-[-6px]")} />
       <span
-        className={`${line} top-1/2 -translate-y-1/2 ${open ? "scale-x-0 opacity-0" : "opacity-100"}`}
+        className={line + (open ? " -translate-y-1/2 scale-x-0 opacity-0" : " -translate-y-1/2 opacity-100")}
       />
-      <span
-        className={`${line} ${open ? "top-1/2 bottom-auto -translate-y-1/2 -rotate-45" : "bottom-[5px]"}`}
-      />
+      <span className={line + (open ? " -translate-y-1/2 -rotate-45" : " translate-y-[6px]")} />
     </span>
   );
 }

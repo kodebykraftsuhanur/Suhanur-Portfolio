@@ -1,7 +1,7 @@
 /** Hero — matches Figma "hero Section" (node 613:1371). */
 
 import { Link } from "react-router-dom";
-import { SITE_IMAGES } from "../assets/siteImages";
+import { HERO_CTA_ARROW, HERO_PORTRAIT_FALLBACK } from "../assets/pathsHero";
 import { SiteNavBar } from "./SiteNavBar";
 
 /** Responsive derivatives from `npm run optimize-images` (AVIF/WebP @ 400w, 726w, 1088w). */
@@ -50,7 +50,9 @@ export default function HeroSection() {
                   <img
                     alt=""
                     className="absolute block size-full max-w-none"
-                    src={SITE_IMAGES.heroCtaArrow}
+                    src={HERO_CTA_ARROW}
+                    width={36}
+                    height={36}
                     decoding="async"
                     fetchPriority="low"
                   />
@@ -71,7 +73,7 @@ export default function HeroSection() {
                 <img
                   alt="Suhanur Rahman"
                   className="pointer-events-none h-full w-full object-cover object-[50%_22%]"
-                  src={SITE_IMAGES.heroPortrait}
+                  src={HERO_PORTRAIT_FALLBACK}
                   srcSet={heroSrcSet("webp")}
                   sizes={HERO_PORTRAIT_SIZES}
                   width={363}

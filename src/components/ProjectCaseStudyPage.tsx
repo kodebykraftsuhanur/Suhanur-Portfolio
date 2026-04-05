@@ -58,6 +58,8 @@ function ProcessArrow() {
           alt=""
           className="block size-full max-w-none"
           src={SITE_IMAGES.caseProcessArrow1}
+          width={24}
+          height={24}
           decoding="async"
           loading="lazy"
         />
@@ -67,6 +69,8 @@ function ProcessArrow() {
           alt=""
           className="block size-full max-w-none"
           src={SITE_IMAGES.caseProcessArrow2}
+          width={24}
+          height={24}
           decoding="async"
           loading="lazy"
         />
@@ -138,6 +142,8 @@ function HeroMedia({ images, title }: { images: CaseStudyImages; title: string }
         src={images.hero}
         pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
+        width={888}
+        height={520}
         decoding="async"
         fetchPriority="high"
         sizes="(min-width: 1024px) min(1240px, 100vw), 100vw"
@@ -157,6 +163,8 @@ function WideMedia({ src }: { src: string | null }) {
         src={src}
         pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
+        width={888}
+        height={454}
         decoding="async"
         loading="lazy"
         sizes="(min-width: 1024px) 1240px, 100vw"
@@ -176,6 +184,8 @@ function HandMedia({ images }: { images: CaseStudyImages }) {
         src={images.handBg}
         pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
+        width={1240}
+        height={698}
         decoding="async"
         loading="lazy"
         sizes="(min-width: 1024px) 1240px, 100vw"
@@ -185,6 +195,8 @@ function HandMedia({ images }: { images: CaseStudyImages }) {
         src={images.handPhone}
         pictureClassName="pointer-events-none absolute inset-0 block h-full w-full max-w-full"
         className="pointer-events-none h-full w-full max-w-full object-contain object-bottom"
+        width={1240}
+        height={698}
         decoding="async"
         loading="lazy"
         sizes="(min-width: 1024px) 1240px, 100vw"
@@ -205,6 +217,7 @@ function FinalMockupBlock({ src }: { src: string | null }) {
       src={src}
       alt=""
       width={1240}
+      height={600}
       pictureClassName="block w-full max-w-[1240px]"
       className="block h-auto min-w-0 w-full max-w-[1240px]"
       decoding="async"
@@ -414,6 +427,8 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                     src={c.image}
                     pictureClassName="absolute inset-0 block h-full w-full"
                     className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
+                    width={402}
+                    height={245}
                     decoding="async"
                     loading="lazy"
                     sizes="(min-width: 1024px) 360px, (min-width: 768px) 50vw, 100vw"
@@ -434,6 +449,8 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                         alt=""
                         className="block size-full max-w-none"
                         src={SITE_IMAGES.caseLinkArrow}
+                        width={24}
+                        height={24}
                         decoding="async"
                         loading="lazy"
                       />
