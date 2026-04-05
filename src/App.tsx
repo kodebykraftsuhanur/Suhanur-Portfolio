@@ -1,9 +1,10 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import FooterSection from "./components/FooterSection";
+import HomePage from "./components/HomePage";
 import { ScrollToTop } from "./components/ScrollToTop";
 
-const HomePage = lazy(() => import("./components/HomePage"));
+/** Home is eager so the LCP hero is not blocked behind a lazy chunk. */
 const ProjectsPage = lazy(() => import("./components/ProjectsPage"));
 const ProjectDetailsPage = lazy(() => import("./components/ProjectDetailsPage"));
 const ContactMePage = lazy(() => import("./components/ContactMePage"));

@@ -67,6 +67,7 @@ export default function ProjectsSection() {
                     className="block size-full max-w-none"
                     src={SITE_IMAGES.projectsCtaArrow}
                     decoding="async"
+                    loading="lazy"
                   />
                 </span>
               </span>

@@ -48,7 +48,7 @@ function PlusIcon({ className }: { className?: string }) {
     <div className={className ?? "relative size-7 shrink-0 sm:size-8"}>
       <div className="absolute inset-[16.67%]">
         <div className="absolute inset-[-4.69%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.servicesPlus} decoding="async" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.servicesPlus} decoding="async" loading="lazy" />
         </div>
       </div>
     </div>

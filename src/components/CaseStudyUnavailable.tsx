@@ -34,6 +34,7 @@ export function CaseStudyUnavailable() {
                     className="absolute block size-full max-w-none"
                     src={SITE_IMAGES.unavailableCtaIcon}
                     decoding="async"
+                    loading="lazy"
                   />
                 </span>
               </button>

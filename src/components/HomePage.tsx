@@ -1,6 +1,5 @@
 import AboutMeSection from "./AboutMeSection";
-import ContactInformation from "./ContactInformation";
-import ContactForm from "./ContactForm";
+import BookingCalendar from "./BookingCalendar";
 import HeroSection from "./HeroSection";
 import MyServicesSection from "./MyServicesSection";
 import ProjectsSection from "./ProjectsSection";
@@ -70,27 +69,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="w-full bg-cream py-16 sm:py-[90px]">
-        <div className={layoutShell}>
-          <div className={`${layoutBand} flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-[60px]`}>
-          <div className="flex w-full flex-1 flex-col gap-10 lg:justify-between">
-            <div className="flex flex-col gap-4">
-              <h2 className="font-serif text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink">
-                Lets Make It Happen
-              </h2>
-              <p className="max-w-xl font-sans text-[18px] leading-8 text-subtitle">
-                Tell us about your idea. We&apos;ll discuss your needs, plan the approach, and start building something
-                great.
-              </p>
-            </div>
-            <ContactInformation />
-          </div>
-
-          <ContactForm />
-          </div>
-        </div>
-      </section>
+      {/* Contact / booking — anchor id preserved for in-page links */}
+      <BookingCalendar anchorId="contact" />
     </div>
   );
 }

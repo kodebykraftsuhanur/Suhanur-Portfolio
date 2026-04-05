@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /*
+   * Cal.com inline: <cal-inline style="height:inherit;…"> fills a tall parent → large white band under the dark UI.
+   * Keep the embed; shrink the host + iframe to content height.
+   */
+  .booking-cal-root cal-inline {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+  }
+
+  .booking-cal-root iframe.cal-embed {
+    display: block;
+    max-height: none !important;
+  }
+}

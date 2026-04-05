@@ -4,21 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" as="image" href="/images/hero-portrait.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Critical above-the-fold paint (matches Tailwind bg-cream / text-ink) -->
+    <style>
+      html {
+        background-color: #fffefa;
+      }
+      body {
+        margin: 0;
+        background-color: #fffefa;
+        color: #0f0f0f;
+      }
+    </style>
+    <!-- LCP hero: responsive preload (Chromium uses imagesrcset / imagesizes) -->
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700;800&family=Inter:wght@400;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      as="image"
+      href="/images/hero-portrait-726.webp"
+      imagesrcset="/images/hero-portrait-400.webp 400w, /images/hero-portrait-726.webp 726w, /images/hero-portrait-1088.webp 1088w"
+      imagesizes="(max-width: 1024px) min(363px, 100vw), 363px"
+      fetchpriority="high"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700;800&family=Inter:wght@400;700&display=swap"
-      />
-    </noscript>
     <title>Suhanur Rahman — Portfolio</title>
   </head>
   <body>

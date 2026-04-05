@@ -2,9 +2,8 @@
 
 import { Link } from "react-router-dom";
 import { SITE_IMAGES } from "../assets/siteImages";
-import ContactForm from "./ContactForm";
+import BookingCalendar from "./BookingCalendar";
 import { PictureImg } from "./PictureImg";
-import ContactInformation from "./ContactInformation";
 import { SiteNavBar } from "./SiteNavBar";
 
 const layoutShell = "mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]";
@@ -71,6 +70,7 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
               className="block size-full max-w-none"
               src={SITE_IMAGES.projectsPageLinkArrow}
               decoding="async"
+              loading="lazy"
             />
           </span>
         </span>
@@ -125,25 +125,11 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      <section id="contact" className="w-full bg-cream py-16 sm:py-[90px]">
-        <div className={layoutShell}>
-          <div className={`${layoutBand} flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-[60px]`}>
-            <div className="flex w-full flex-1 flex-col gap-10 lg:justify-between">
-              <div className="flex flex-col gap-4">
-                <h2 className="font-serif text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink">
-                  Lets Make It Happen
-                </h2>
-                <p className="max-w-xl font-sans text-[18px] leading-8 text-subtitle">
-                  Tell us about your idea. We&apos;ll discuss your needs, plan the approach, and start building something
-                  great.
-                </p>
-              </div>
-              <ContactInformation />
-            </div>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+      <BookingCalendar
+        anchorId="contact"
+        title="Make It Happen"
+        headingId="booking-prefer-call-projects"
+      />
     </div>
   );
 }

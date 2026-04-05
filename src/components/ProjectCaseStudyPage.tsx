@@ -6,8 +6,7 @@ import { SITE_IMAGES } from "../assets/siteImages";
 import type { CaseStudyImages, ProjectCaseStudyConfig } from "../data/projectCaseStudies";
 import { CaseStudyFinalMockup, CASE_STUDY_FINAL_MOCKUP_SRC } from "./CaseStudyFinalMockup";
 import { PictureImg } from "./PictureImg";
-import ContactForm from "./ContactForm";
-import ContactInformation from "./ContactInformation";
+import BookingCalendar from "./BookingCalendar";
 import { SiteNavBar } from "./SiteNavBar";
 
 const layoutShell = "mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]";
@@ -60,6 +59,7 @@ function ProcessArrow() {
           className="block size-full max-w-none"
           src={SITE_IMAGES.caseProcessArrow1}
           decoding="async"
+          loading="lazy"
         />
       </span>
       <span className="absolute bottom-[33.33%] left-[33.33%] right-1/4 top-1/4">
@@ -68,6 +68,7 @@ function ProcessArrow() {
           className="block size-full max-w-none"
           src={SITE_IMAGES.caseProcessArrow2}
           decoding="async"
+          loading="lazy"
         />
       </span>
     </span>
@@ -173,7 +174,6 @@ function HandMedia({ images }: { images: CaseStudyImages }) {
       <PictureImg
         alt=""
         src={images.handBg}
-        rasterWebp={false}
         pictureClassName="absolute inset-0 block h-full w-full"
         className="absolute inset-0 h-full w-full max-w-none object-cover object-center"
         decoding="async"
@@ -435,6 +435,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                         className="block size-full max-w-none"
                         src={SITE_IMAGES.caseLinkArrow}
                         decoding="async"
+                        loading="lazy"
                       />
                     </span>
                   </span>
@@ -445,25 +446,11 @@ export default function ProjectCaseStudyPage({ config }: Props) {
         </div>
       </SectionFrame>
 
-      <SectionFrame id="contact" className="bg-cream py-16 sm:py-[90px]">
-        <div className="flex min-w-0 max-w-full flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-[60px]">
-          <div className="flex min-w-0 w-full max-w-full flex-1 flex-col gap-10 lg:justify-between">
-            <div className="min-w-0 flex flex-col gap-4">
-              <h2 className="font-serif text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink">
-                Lets Make It Happen
-              </h2>
-              <p className="max-w-full break-words font-sans text-[18px] leading-8 text-subtitle sm:max-w-xl">
-                Tell us about your idea. We&apos;ll discuss your needs, plan the approach, and start building something
-                great.
-              </p>
-            </div>
-            <ContactInformation />
-          </div>
-          <div className="min-w-0 w-full max-w-full flex-1">
-            <ContactForm />
-          </div>
-        </div>
-      </SectionFrame>
+      <BookingCalendar
+        anchorId="contact"
+        title="Make It Happen"
+        headingId="booking-prefer-call-case-study"
+      />
     </div>
   );
 }

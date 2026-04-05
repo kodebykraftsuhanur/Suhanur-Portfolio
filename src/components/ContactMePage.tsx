@@ -4,6 +4,7 @@
  * Mobile: headline, form, then contact (CSS Grid areas).
  */
 
+import BookingCalendar from "./BookingCalendar";
 import ContactForm from "./ContactForm";
 import ContactInformation from "./ContactInformation";
 import { SiteNavBar } from "./SiteNavBar";
@@ -69,6 +70,11 @@ export default function ContactMePage() {
           </div>
         </div>
       </section>
+
+      <BookingCalendar
+        title="Or Prefer a Call!"
+        headingId="booking-prefer-call-heading"
+      />
     </div>
   );
 }

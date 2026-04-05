@@ -2,8 +2,16 @@
 
 import { Link } from "react-router-dom";
 import { SITE_IMAGES } from "../assets/siteImages";
-import { PictureImg } from "./PictureImg";
 import { SiteNavBar } from "./SiteNavBar";
+
+/** Responsive derivatives from `npm run optimize-images` (AVIF/WebP @ 400w, 726w, 1088w). */
+const HERO_PORTRAIT_BASE = "/images/hero-portrait";
+const HERO_PORTRAIT_SIZES = "(max-width: 1024px) min(363px, 100vw), 363px";
+const HERO_PORTRAIT_WIDTHS = [400, 726, 1088] as const;
+
+function heroSrcSet(ext: "avif" | "webp"): string {
+  return HERO_PORTRAIT_WIDTHS.map((w) => `${HERO_PORTRAIT_BASE}-${w}.${ext} ${w}w`).join(", ");
+}
 
 export default function HeroSection() {
   return (
@@ -57,17 +65,21 @@ export default function HeroSection() {
               aria-hidden
             />
             <div className="relative col-start-1 row-start-1 aspect-[363/428] w-[min(363px,calc(100vw-2.5rem))] max-w-full overflow-hidden border-[3px] border-solid border-pine bg-black">
-              <PictureImg
-                alt="Suhanur Rahman"
-                pictureClassName="block h-full w-full"
-                className="pointer-events-none h-full w-full object-cover object-[50%_22%]"
-                src={SITE_IMAGES.heroPortrait}
-                width={363}
-                height={428}
-                sizes="(max-width: 1024px) min(363px, 100vw), 363px"
-                decoding="async"
-                fetchPriority="high"
-              />
+              <picture className="block h-full w-full">
+                <source type="image/avif" srcSet={heroSrcSet("avif")} sizes={HERO_PORTRAIT_SIZES} />
+                <source type="image/webp" srcSet={heroSrcSet("webp")} sizes={HERO_PORTRAIT_SIZES} />
+                <img
+                  alt="Suhanur Rahman"
+                  className="pointer-events-none h-full w-full object-cover object-[50%_22%]"
+                  src={SITE_IMAGES.heroPortrait}
+                  srcSet={heroSrcSet("webp")}
+                  sizes={HERO_PORTRAIT_SIZES}
+                  width={363}
+                  height={428}
+                  decoding="sync"
+                  fetchPriority="high"
+                />
+              </picture>
             </div>
           </div>
         </div>

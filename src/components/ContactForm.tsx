@@ -27,7 +27,7 @@ function SelectChevron() {
     <div className="pointer-events-none relative size-6 shrink-0" aria-hidden>
       <div className="absolute bottom-[37.5%] left-1/4 right-1/4 top-[37.5%]">
         <div className="absolute inset-[-16.67%_-8.33%]">
-          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.contactChevron} decoding="async" />
+          <img alt="" className="block size-full max-w-none" src={SITE_IMAGES.contactChevron} decoding="async" loading="lazy" />
         </div>
       </div>
     </div>
@@ -129,6 +129,7 @@ export default function ContactForm() {
               className="block size-full max-w-none"
               src={SITE_IMAGES.contactSubmitArrow}
               decoding="async"
+              loading="lazy"
             />
           </span>
         </span>
