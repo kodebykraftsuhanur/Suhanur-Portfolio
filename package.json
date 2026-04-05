@@ -8,8 +8,8 @@
     "build": "tsc -b && vite build",
     "optimize-images": "node scripts/optimize-rasters.mjs",
     "preview": "vite preview",
-    "vercel": "vercel",
-    "vercel:prod": "vercel --prod"
+    "vercel": "node ./scripts/run-vercel.mjs",
+    "vercel:prod": "node ./scripts/run-vercel.mjs --prod"
   },
   "dependencies": {
     "@fontsource/eb-garamond": "^5.2.7",
