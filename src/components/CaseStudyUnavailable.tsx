@@ -5,6 +5,7 @@
 
 import { SITE_IMAGES } from "../assets/siteImages";
 import { SiteNavBar } from "./SiteNavBar";
+import { SlideCtaButton } from "./SlideCta";
 
 const layoutShell = "mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]";
 const layoutBand = "mx-auto flex w-full max-w-[1240px] flex-col items-center";
@@ -21,9 +22,10 @@ export function CaseStudyUnavailable() {
               <h1 className="max-w-[min(100%,22ch)] font-serif text-[clamp(2.25rem,6.5vw+0.5rem,6.875rem)] font-extrabold leading-[1.2] text-ink">
                 This Case Study is not available yet
               </h1>
-              <button
+              <SlideCtaButton
                 type="button"
-                className="inline-flex w-fit shrink-0 items-center gap-[10px] bg-pine px-6 py-4 text-mist"
+                className="inline-flex w-fit shrink-0 cursor-pointer items-start border-0 bg-pine px-6 text-mist"
+                layerClassName="gap-[10px]"
               >
                 <span className="whitespace-nowrap font-sans text-[20px] font-bold leading-9 tracking-[1px]">
                   Lets Build a Project
@@ -39,7 +41,7 @@ export function CaseStudyUnavailable() {
                     loading="lazy"
                   />
                 </span>
-              </button>
+              </SlideCtaButton>
             </div>
             </div>
           </div>

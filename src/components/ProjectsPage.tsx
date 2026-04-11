@@ -1,8 +1,8 @@
 /** Dedicated projects page — Figma "project" (663:543): nav + My Projects grid + contact + footer. */
 
-import { Link } from "react-router-dom";
 import { SITE_IMAGES } from "../assets/siteImages";
 import BookingCalendar from "./BookingCalendar";
+import { SlideCtaLink } from "./SlideCta";
 import { PictureImg } from "./PictureImg";
 import { SiteNavBar } from "./SiteNavBar";
 
@@ -60,11 +60,12 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
         <h3 className="text-[clamp(1.25rem,3vw,2rem)] font-normal leading-normal lg:text-[32px]">{title}</h3>
         <p className="text-[18px] leading-normal">{description}</p>
       </div>
-      <Link
+      <SlideCtaLink
         to={`/projects/${id}`}
-        className="inline-flex w-fit items-center gap-2.5 border border-ink px-6 py-4 font-sans text-[16px] font-bold leading-6 tracking-[0.8px] text-ink"
+        className="inline-flex w-fit shrink-0 items-start border border-ink px-6 font-sans text-[16px] font-bold leading-6 tracking-[0.8px] text-ink no-underline"
+        layerClassName="gap-2.5"
       >
-        Check project Details
+        <span>Check project Details</span>
         <span className="relative size-6 shrink-0 overflow-hidden">
           <span className="absolute inset-[18.75%_12.5%]">
             <img
@@ -78,7 +79,7 @@ function ProjectCard({ id, image, title, description }: (typeof PROJECTS)[0]) {
             />
           </span>
         </span>
-      </Link>
+      </SlideCtaLink>
     </article>
   );
 }

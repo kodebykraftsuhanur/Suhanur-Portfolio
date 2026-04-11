@@ -1,6 +1,7 @@
 /** Projects — Figma "My Project" (node 666:918). Sticky stack on large screens. */
 
 import { Link } from "react-router-dom";
+import { SlideCtaLink } from "./SlideCta";
 import { SITE_IMAGES } from "../assets/siteImages";
 import { PictureImg } from "./PictureImg";
 
@@ -56,9 +57,10 @@ export default function ProjectsSection() {
             <h2 className="font-serif text-[clamp(2.5rem,6vw,6rem)] font-extrabold leading-[1.2] text-ink lg:text-[96px]">
               Project That Proves My Capabilities
             </h2>
-            <Link
+            <SlideCtaLink
               to="/projects"
-              className="inline-flex w-fit shrink-0 items-center gap-2.5 bg-pine px-6 py-4 text-mist no-underline transition-opacity hover:opacity-90"
+              className="inline-flex w-fit shrink-0 items-start bg-pine px-6 text-mist no-underline"
+              layerClassName="gap-2.5"
             >
               <span className="whitespace-nowrap font-sans text-[20px] font-bold leading-9 tracking-[1px]">
                 See Projects
@@ -76,7 +78,7 @@ export default function ProjectsSection() {
                   />
                 </span>
               </span>
-            </Link>
+            </SlideCtaLink>
           </div>
 
           <div className="relative flex w-full min-w-0 flex-col gap-[32px]">

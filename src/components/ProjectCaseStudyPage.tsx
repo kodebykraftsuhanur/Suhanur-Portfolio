@@ -1,7 +1,7 @@
 /** Full case-study layout driven by `projectCaseStudies` config. */
 
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { SlideCtaLink } from "./SlideCta";
 import { SITE_IMAGES } from "../assets/siteImages";
 import type { CaseStudyImages, ProjectCaseStudyConfig } from "../data/projectCaseStudies";
 import { CaseStudyFinalMockup, CASE_STUDY_FINAL_MOCKUP_SRC } from "./CaseStudyFinalMockup";
@@ -438,11 +438,12 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                   <h3 className="text-[clamp(1.25rem,3vw,2rem)] font-normal leading-tight">{c.title}</h3>
                   <p className="min-w-0 break-words text-[18px] leading-normal">{c.description}</p>
                 </div>
-                <Link
+                <SlideCtaLink
                   to={c.href}
-                  className="mt-auto inline-flex w-fit shrink-0 items-center gap-2.5 border border-mist px-6 py-4 text-[16px] font-bold leading-6 tracking-[0.8px]"
+                  className="mt-auto inline-flex w-fit shrink-0 items-start border border-mist px-6 text-[16px] font-bold leading-6 tracking-[0.8px] no-underline text-inherit"
+                  layerClassName="gap-2.5"
                 >
-                  Check project Details
+                  <span>Check project Details</span>
                   <span className="relative size-6 shrink-0 overflow-hidden">
                     <span className="absolute inset-[18.75%_12.5%]">
                       <img
@@ -456,7 +457,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
                       />
                     </span>
                   </span>
-                </Link>
+                </SlideCtaLink>
               </article>
             ))}
           </div>

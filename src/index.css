@@ -24,4 +24,50 @@
     max-height: none !important;
     overflow: hidden !important;
   }
+
+  /** Primary / outline CTAs — vertical slide (see `SlideCtaLink` / `SlideCtaButton`). */
+  .slide-cta-btn {
+    overflow: hidden;
+    height: 68px;
+  }
+
+  .slide-cta-track {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .slide-cta-layer {
+    height: 68px;
+    flex-shrink: 0;
+  }
+
+  .slide-cta-btn:hover .slide-cta-track {
+    transform: translateY(-50%);
+  }
+
+  /** Text-only nav links — same motion as CTAs, one line (`leading-7`). See `SlideTextLink`. */
+  .slide-text-link {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.75rem;
+    vertical-align: top;
+  }
+
+  .slide-text-track {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .slide-text-layer {
+    display: flex;
+    height: 1.75rem;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .slide-text-link:hover .slide-text-track {
+    transform: translateY(-50%);
+  }
 }

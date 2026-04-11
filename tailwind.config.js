@@ -24,6 +24,7 @@ export default {
         "nav-panel": "cubic-bezier(0.4, 0, 0.2, 1)",
       },
       fontFamily: {
+        anton: ['"Anton"', "Impact", "Haettenschweiler", "Arial Narrow", "sans-serif"],
         serif: ['"EB Garamond"', "Georgia", "serif"],
         sans: ['Inter', "system-ui", "sans-serif"],
       },

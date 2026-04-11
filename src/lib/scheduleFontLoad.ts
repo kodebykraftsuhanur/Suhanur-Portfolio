@@ -7,6 +7,7 @@ export function scheduleFontLoad(): void {
 
   const load = (): void => {
     void Promise.all([
+      import("@fontsource/eb-garamond/latin-400.css"),
       import("@fontsource/eb-garamond/latin-700.css"),
       import("@fontsource/eb-garamond/latin-800.css"),
       import("@fontsource/inter/latin-400.css"),

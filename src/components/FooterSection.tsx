@@ -2,8 +2,8 @@
  * Footer — Figma [742:818](https://www.figma.com/design/NWuQSkecf49B0xVq3XR6Z5/Figmafolio?node-id=742-818)
  */
 
-import { Link } from "react-router-dom";
 import { SITE_IMAGES } from "../assets/siteImages";
+import { SlideTextLink } from "./SlideCta";
 
 function BehanceIcon() {
   return (
@@ -72,7 +72,7 @@ function DribbbleIcon() {
 }
 
 const navLinkClass =
-  "whitespace-nowrap font-sans text-[20px] font-bold leading-7 tracking-[0.48px] text-mist transition-opacity hover:opacity-80 sm:text-2xl sm:leading-7";
+  "whitespace-nowrap font-sans text-[20px] font-bold leading-7 tracking-[0.48px] text-mist no-underline sm:text-2xl sm:leading-7";
 
 const socialClass =
   "flex size-14 shrink-0 items-center justify-center bg-cream p-4 transition-opacity hover:opacity-90";
@@ -84,24 +84,42 @@ export default function FooterSection() {
         <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-[60px]">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <nav className="flex flex-wrap items-center gap-8 sm:gap-[60px]" aria-label="Footer">
-              <Link to="/" className={navLinkClass}>
+              <SlideTextLink to="/" className={navLinkClass}>
                 Home
-              </Link>
-              <Link to="/projects" className={navLinkClass}>
+              </SlideTextLink>
+              <SlideTextLink to="/projects" className={navLinkClass}>
                 Projects
-              </Link>
-              <Link to="/contact" className={navLinkClass}>
+              </SlideTextLink>
+              <SlideTextLink to="/contact" className={navLinkClass}>
                 Contact Me
-              </Link>
+              </SlideTextLink>
             </nav>
             <div className="flex gap-6">
-              <a href="#" className={socialClass} aria-label="Behance">
+              <a
+                href="https://www.behance.net/suhanurrahmanmahin"
+                className={socialClass}
+                aria-label="Behance"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <BehanceIcon />
               </a>
-              <a href="#" className={socialClass} aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/suhanur-rahman-mahin-90a964367"
+                className={socialClass}
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <LinkedinIcon />
               </a>
-              <a href="#" className={socialClass} aria-label="Dribbble">
+              <a
+                href="https://dribbble.com/mahinrahman2021"
+                className={socialClass}
+                aria-label="Dribbble"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <DribbbleIcon />
               </a>
             </div>

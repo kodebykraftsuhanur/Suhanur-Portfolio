@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { SITE_IMAGES } from "../assets/siteImages";
+import { SlideCtaButton } from "./SlideCta";
 
 const fieldBase =
   "w-full border-b border-mist bg-transparent py-2 text-[18px] leading-8 text-mist focus:outline-none focus:ring-0";
@@ -125,11 +126,12 @@ export default function ContactForm() {
         />
       </label>
 
-      <button
+      <SlideCtaButton
         type="submit"
-        className="flex w-full items-center justify-between bg-cream px-6 py-4 text-left font-sans text-[20px] font-bold leading-9 tracking-[1px] text-ink"
+        className="flex w-full shrink-0 cursor-pointer items-start border-0 bg-cream px-6 text-left font-sans text-[20px] font-bold leading-9 tracking-[1px] text-ink"
+        layerClassName="w-full justify-between gap-4"
       >
-        Submit Request
+        <span>Submit Request</span>
         <span className="relative size-9 shrink-0 overflow-hidden">
           <span className="absolute inset-[18.75%_12.5%]">
             <img
@@ -143,7 +145,7 @@ export default function ContactForm() {
             />
           </span>
         </span>
-      </button>
+      </SlideCtaButton>
     </form>
   );
 }
