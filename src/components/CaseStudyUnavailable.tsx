@@ -19,7 +19,7 @@ export function CaseStudyUnavailable() {
           <div className={layoutShell}>
             <div className={`${layoutBand}`}>
             <div className="flex w-full min-w-0 max-w-full flex-col items-center gap-10 text-center max-lg:pt-0 sm:pt-16 lg:pt-24">
-              <h1 className="max-w-[min(100%,22ch)] font-serif text-[clamp(2.25rem,6.5vw+0.5rem,6.875rem)] font-extrabold leading-[1.2] text-ink">
+              <h1 className="max-w-[min(100%,22ch)] text-[clamp(2.25rem,6.5vw+0.5rem,6.875rem)] font-extrabold leading-[1.2] text-ink">
                 This Case Study is not available yet
               </h1>
               <SlideCtaButton

@@ -186,7 +186,7 @@ export default function BookingCalendar({
         <div className="mx-auto w-full max-w-[1240px]">
           <h2
             id={headingId}
-            className="mb-20 text-center font-serif text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink"
+            className="mb-20 text-center text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink"
           >
             {title}
           </h2>

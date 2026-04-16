@@ -54,7 +54,7 @@ export default function ProjectsSection() {
       <div className="mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]">
         <div className="mx-auto grid w-full max-w-[1240px] grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start lg:gap-x-[60px] lg:gap-y-0">
           <div className="flex w-full min-w-0 flex-col gap-10 lg:sticky lg:top-24 lg:self-start">
-            <h2 className="font-serif text-[clamp(2.5rem,6vw,6rem)] font-extrabold leading-[1.2] text-ink lg:text-[96px]">
+            <h2 className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold leading-[1.2] text-ink lg:text-[96px]">
               Project That Proves My Capabilities
             </h2>
             <SlideCtaLink

@@ -242,7 +242,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
             <div className={layoutBand}>
               <div className="flex w-full min-w-0 max-w-full flex-col max-lg:gap-6 lg:gap-12">
           <h1
-            className="w-full text-center font-serif font-extrabold leading-none text-ink"
+            className="w-full text-center font-extrabold leading-none text-ink"
             style={{
               fontSize: "min(165px, max(2.5rem, calc((100vw - 2.5rem) / 6)))",
             }}
@@ -286,7 +286,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
           </div>
 
           <section className="min-w-0 max-w-full flex flex-col gap-4 text-black">
-            <h2 className="font-sans text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-[0.1em]">
+            <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight">
               About The Project
             </h2>
             <p className="min-w-0 break-words font-sans text-[18px] leading-7">{about}</p>
@@ -302,14 +302,14 @@ export default function ProjectCaseStudyPage({ config }: Props) {
           <WideMedia src={images.wide} />
 
           <section className="min-w-0 max-w-full flex flex-col gap-4 text-black">
-            <h2 className="font-sans text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-[0.1em]">
+            <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight">
               Problems
             </h2>
             <p className="min-w-0 break-words font-sans text-[18px] leading-7">{problems}</p>
           </section>
 
           <section className="min-w-0 max-w-full flex flex-col gap-4 text-black">
-            <h2 className="font-sans text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-[0.1em]">
+            <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight">
               Solutions
             </h2>
             <p className="min-w-0 break-words font-sans text-[18px] leading-7">{solutions}</p>
@@ -321,7 +321,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
 
       <SectionFrame className="bg-cream py-12 sm:py-16">
         <div className="flex min-w-0 max-w-full flex-col gap-10">
-          <h2 className="font-sans text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-[0.1em] text-black">
+          <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight text-black">
             Design process
           </h2>
           <div className="grid min-w-0 max-w-full grid-cols-1 gap-4 md:grid-cols-2">
@@ -343,7 +343,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
 
       <SectionFrame className="bg-cream py-12 sm:py-16">
         <div className="flex min-w-0 max-w-full flex-col gap-10">
-          <h2 className="font-sans text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-[0.1em] text-black">
+          <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight text-black">
             Design Timeline
           </h2>
           <div className="flex w-full flex-col font-sans text-[clamp(1.25rem,3vw,2rem)] text-ink">
@@ -366,7 +366,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
 
       <SectionFrame className="bg-cream py-12 sm:py-16">
         <div className="flex min-w-0 max-w-full flex-col gap-10">
-          <h2 className="font-sans text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-[0.1em] text-black">
+          <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight text-black">
             Design System
           </h2>
           <div className="flex min-w-0 max-w-full flex-col gap-0 lg:flex-row">
@@ -411,7 +411,7 @@ export default function ProjectCaseStudyPage({ config }: Props) {
         <div className="flex flex-col gap-12 lg:gap-20">
           <h2
             id="similar-heading"
-            className="text-center font-serif text-[clamp(2.5rem,8vw,6rem)] font-extrabold leading-none text-mist"
+            className="text-center text-[clamp(2.5rem,8vw,6rem)] font-extrabold leading-none text-mist"
           >
             Similar Projects
           </h2>

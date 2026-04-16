@@ -166,7 +166,7 @@ export default function MyServicesSection() {
     <section className="w-full bg-cream py-12 [contain-intrinsic-size:auto_720px] [content-visibility:auto] sm:py-14 md:py-16 lg:py-[90px]">
       <div className="mx-auto box-border w-full max-w-[1440px] px-5 sm:px-8 lg:px-[100px]">
         <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-8 sm:gap-12 md:gap-16 lg:gap-[80px]">
-        <h2 className="w-full text-balance px-1 text-center font-serif font-extrabold leading-[1.05] text-ink sm:leading-none sm:tracking-tight md:tracking-normal">
+        <h2 className="w-full text-balance px-1 text-center font-extrabold leading-[1.05] text-ink sm:leading-none">
           <span className="block text-[clamp(1.75rem,calc(5.5vw+0.75rem),6rem)] lg:text-[96px]">What I can do </span>
           <span className="block text-[clamp(1.75rem,calc(5.5vw+0.75rem),6rem)] lg:text-[96px]">for you</span>
         </h2>

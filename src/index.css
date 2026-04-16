@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-anton tracking-[2px];
+  }
+}
+
 @layer components {
   /*
    * Cal.com inline: <cal-inline style="height:inherit;…"> fills a tall parent → large white band under the dark UI.

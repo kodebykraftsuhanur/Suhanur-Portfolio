@@ -8,7 +8,7 @@ export default function ContactInformation() {
   return (
     <div className="flex w-full max-w-[588px] flex-col overflow-hidden border border-black/50 sm:flex-row sm:items-stretch">
       <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-4 py-8 leading-none sm:basis-0 sm:gap-4 sm:px-5 sm:py-10 lg:py-[50px]">
-        <p className="font-sans text-[clamp(1.375rem,5vw,2.5rem)] font-bold leading-tight tracking-tight text-ink">
+        <p className="font-anton text-[clamp(1.375rem,5vw,2.5rem)] font-bold leading-tight text-ink">
           Email
         </p>
         <a
@@ -24,7 +24,7 @@ export default function ContactInformation() {
       <div className="hidden w-px shrink-0 self-stretch bg-black/50 sm:block" aria-hidden />
 
       <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 px-4 py-8 leading-none sm:basis-0 sm:gap-4 sm:px-5 sm:py-10 lg:py-[50px]">
-        <p className="font-sans text-[clamp(1.375rem,5vw,2.5rem)] font-bold leading-tight tracking-tight text-ink">
+        <p className="font-anton text-[clamp(1.375rem,5vw,2.5rem)] font-bold leading-tight text-ink">
           Phone
         </p>
         <a

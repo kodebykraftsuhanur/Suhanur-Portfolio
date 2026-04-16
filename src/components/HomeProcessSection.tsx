@@ -31,7 +31,7 @@ export default function HomeProcessSection() {
     <section className="w-full bg-black py-16 [contain-intrinsic-size:auto_520px] [content-visibility:auto] sm:py-[90px]">
       <div className={layoutShell}>
         <div className={`${layoutBand} flex flex-col gap-12 sm:gap-20`}>
-          <h2 className="w-full text-center font-serif text-[clamp(2.5rem,8vw,6rem)] font-extrabold leading-none text-mist">
+          <h2 className="w-full text-center text-[clamp(2.5rem,8vw,6rem)] font-extrabold leading-none text-mist">
             <span className="block">From Concept to </span>
             <span className="block">Completion</span>
           </h2>

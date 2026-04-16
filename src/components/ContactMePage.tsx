@@ -24,7 +24,7 @@ export default function ContactMePage() {
           <div className={layoutShell}>
             <div className={layoutBand}>
               <h1
-                className="w-full text-center font-serif font-extrabold leading-none text-ink"
+                className="w-full text-center font-extrabold leading-none text-ink"
                 style={{ fontSize: heroTitleSize }}
               >
                 Contact Me
@@ -51,7 +51,7 @@ export default function ContactMePage() {
               <div className="min-w-0 [grid-area:intro] flex flex-col gap-4">
                 <h2
                   id="contact-lead-heading"
-                  className="w-full font-serif text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink lg:leading-[104px]"
+                  className="w-full text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[1.08] text-ink lg:leading-[104px]"
                 >
                   Lets Make It Happen
                 </h2>

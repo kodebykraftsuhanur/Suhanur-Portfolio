@@ -96,7 +96,7 @@ export default function ProjectsPage() {
             <div className={`${layoutBand} flex flex-col items-center`}>
               <div className="flex w-full flex-col items-center gap-16 lg:gap-20">
               <h1
-                className="w-full text-center font-serif font-extrabold leading-none text-ink"
+                className="w-full text-center font-extrabold leading-none text-ink"
                 style={{
                   fontSize: "min(165px, max(2.5rem, calc((100vw - 2.5rem) / 6)))",
                 }}

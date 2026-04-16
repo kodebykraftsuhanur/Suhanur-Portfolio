@@ -20,7 +20,7 @@ export default function HeroSection() {
 
       <div className="mx-auto box-border flex w-full max-w-[1440px] flex-col items-center gap-6 px-5 pb-24 max-lg:gap-3 max-lg:pb-16 max-lg:pt-6 sm:px-8 md:max-lg:gap-6 lg:gap-[60px] lg:px-[100px] lg:pt-[calc(50px+3.5625rem+1.5rem)]">
         <h1
-          className="whitespace-nowrap text-center font-serif font-bold leading-none text-ink"
+          className="whitespace-nowrap text-center font-bold leading-none text-ink"
           style={{
             /* Single line: nowrap + size capped from viewport so ~16ch fits inside padded hero (avoids overflow-hidden clip). */
             fontSize:
